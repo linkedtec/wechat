@@ -35,8 +35,8 @@ func (mem *Memcache) IsExist(key string) bool {
 	return true
 }
 
-//Set cached value with key and expire time.
-func (mem *Memcache) Set(key string, val interface{}, timeout time.Duration) error {
+//Put cached value with key and expire time.
+func (mem *Memcache) Put(key string, val interface{}, timeout time.Duration) error {
 	v, ok := val.(string)
 	if !ok {
 		return errors.New("val must string")
