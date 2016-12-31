@@ -104,6 +104,6 @@ func (js *Js) getTicketFromServer() (ticket resTicket, err error) {
 
 	jsAPITicketCacheKey := fmt.Sprintf("jsapi_ticket_%s", js.AppID)
 	expires := ticket.ExpiresIn - 1500
-	err = js.Cache.Set(jsAPITicketCacheKey, ticket.Ticket, time.Duration(expires)*time.Second)
+	err = js.Cache.Put(jsAPITicketCacheKey, ticket.Ticket, time.Duration(expires)*time.Second)
 	return
 }
